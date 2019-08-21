@@ -1,0 +1,61 @@
+  mat-card {
+    /* width: calc(100% - 100px);
+    height: calc(100% - 100px); */
+    margin-left: calc(35%);
+    max-width: 500px;
+    justify-content: center;
+    align-content: center;
+  }
+  
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .example-card{
+      margin-top: 15px;
+  }
+  
+  .example-header-image { 
+    background-size: cover;
+  }
+  
+  .title{
+      font-weight: bold;
+  }
+  
+  .img-article{
+      height: 350px;
+  }
+  
+  .action-buttons{
+      text-align: center;
+  }
+  
+  .example-container {
+      width: 100%;
+      height: auto;
+      border: 5px solid rgba(111, 111, 111, 0.50);
+  }
+  
+  .example-sidenav-content {
+      display: flex;
+      height: 75%;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .example-sidenav {
+      padding: 20px;
+  }
+  
+  .source-name {
+      margin-left:5px; 
+  }
+  
+  .list-item:hover{
+      cursor: pointer;
+      background-color: #3f51b5;
+      color: white;
+  }
+  

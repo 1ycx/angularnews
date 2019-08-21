@@ -1,0 +1,23 @@
+{
+    "name": "node-news-feed-api",
+    "version": "1.0.0",
+    "description": "Node.js news feed api",
+    "license": "MIT",
+    "scripts": {
+        "start": "nodemon server.js"
+    },
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "circular-json": "^0.5.9",
+        "cors": "^2.8.5",
+        "express": "^4.16.4",
+        "express-jwt": "^5.3.1",
+        "jsonwebtoken": "^8.4.0",
+        "newsapi": "^2.4.0",
+        "rootpath": "^0.1.2",
+        "translate": "^1.1.0"
+    },
+    "devDependencies": {
+        "nodemon": "^1.18.6"
+    }
+}

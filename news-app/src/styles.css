@@ -1,0 +1,20 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+#leftbox { 
+    float: left;
+  background: #ffffff; 
+  width: 20%;
+  height: 11400px;
+  } 
+  #middlebox{ 
+    float: left;
+  background: #ffffff; 
+  width: 80%;
+  height: 280px;
+  } 
+ 
+.icon{
+  height: 40%;
+  padding: 5px;
+  width: 30px;
+}
