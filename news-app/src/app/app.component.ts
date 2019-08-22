@@ -102,21 +102,3 @@ export class AppComponent {
 		 }
 	}
 }
-
-// this.mArticles.forEach(art => {
-// 	console.log(art.title)
-// 	art.title = this.newsapi.getTranslations(this.toLang, encodeURIComponent(art.title))
-// 	art.source = this.newsapi.getTranslations(this.toLang, encodeURIComponent(art.source))
-// 	art.description = this.newsapi.getTranslations(this.toLang, encodeURIComponent(art.description))
-// 	console.log(art.title) //.forEach(at => console.log(at)))
-// })
-	 
-
-	// lang:string = "";
-
-	// trans(lang) {
-	// 	this.lang = lang;
-	// 	this.visit(this.mSources);
-
-	// }
-	
