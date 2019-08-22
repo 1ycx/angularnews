@@ -1,10 +1,11 @@
   mat-card {
     /* width: calc(100% - 100px);
     height: calc(100% - 100px); */
-    margin-left: calc(35%);
+    /* margin-left: calc(35%); */
     max-width: 500px;
-    justify-content: center;
-    align-content: center;
+    margin: auto;
+    /* justify-content: center;
+    align-content: center; */
   }
   
 
