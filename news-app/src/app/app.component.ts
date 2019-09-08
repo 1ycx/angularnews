@@ -108,7 +108,6 @@ export class AppComponent {
 			}
 			else
 				article.url = google_trans + this.toLang + "&u=" + article.url;
-			console.log(article.url);
 		}
 	}
 }
