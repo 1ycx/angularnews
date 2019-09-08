@@ -4,6 +4,7 @@
     "description": "Node.js news feed api",
     "license": "MIT",
     "scripts": {
+        "build": "node server.js",
         "start": "nodemon server.js"
     },
     "dependencies": {

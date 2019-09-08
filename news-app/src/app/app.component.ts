@@ -86,6 +86,9 @@ export class AppComponent {
 	
 	translate(toLang) {
 		this.toLang = toLang;
+		let link = ""; 
+		let google_trans = "https://translate.google.com/translate?hl=en&sl=auto&tl=";
+
 		switch(this.language){
 			case "in": this.fromLang = "en"; break;
 			case "us": this.fromLang = "en"; break;
@@ -99,6 +102,13 @@ export class AppComponent {
 				.subscribe(data => article.title = data)
 			this.newsapi.getTranslations(this.fromLang, this.toLang, encodeURIComponent(article.description))
 				.subscribe(data => article.description = data)
-		 }
+			if(article.url.includes("translate")) {
+				link = article.url.split("u=")[1]
+				article.url = google_trans + this.toLang + "&u=" + link;
+			}
+			else
+				article.url = google_trans + this.toLang + "&u=" + link;
+			console.log(article.url);
+		}
 	}
 }

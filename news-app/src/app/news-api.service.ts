@@ -7,7 +7,7 @@ import { HttpClient  } from '@angular/common/http';
 })
 export class NewsApiService {
   
-   server_host = "http://localhost:4000/news";
+  server_host = "https://backend.kogam22.now.sh/news";
 
   constructor(private http:HttpClient) { }
 
