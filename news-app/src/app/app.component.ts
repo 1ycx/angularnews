@@ -88,13 +88,15 @@ export class AppComponent {
 		this.toLang = toLang;
 		let link = ""; 
 		let google_trans = "https://translate.google.com/translate?hl=en&sl=auto&tl=";
-
-		switch(this.language){
-			case "in": this.fromLang = "en"; break;
-			case "us": this.fromLang = "en"; break;
-			case "cn": this.fromLang = "zh"; break;
-			case "ae": this.fromLang = "ar"; break;
-			case "ar": this.fromLang = "es"; break;
+		
+		if(this.fromLang == "") {
+			switch(this.language){
+				case "in": this.fromLang = "en"; break;
+				case "us": this.fromLang = "en"; break;
+				case "cn": this.fromLang = "zh"; break;
+				case "ae": this.fromLang = "ar"; break;
+				case "ar": this.fromLang = "es"; break;
+			}
 		}
 		// if(this.fromLang === this.language) return;
 		for (let article of this.mArticles) {
@@ -109,5 +111,6 @@ export class AppComponent {
 			else
 				article.url = google_trans + this.toLang + "&u=" + article.url;
 		}
+		this.fromLang = this.toLang;
 	}
 }
