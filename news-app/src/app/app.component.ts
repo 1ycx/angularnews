@@ -99,20 +99,22 @@ export class AppComponent {
 		}
 
 		// Currently translations not implemented for other languages, thus
-		if(!(this.fromLang in ["en", "zh", "ar", "es"])) return;
-		
-		for (let article of this.mArticles) {
-			this.newsapi.getTranslations(this.fromLang, this.toLang, encodeURIComponent(article.title))
-				.subscribe(data => article.title = data)
-			this.newsapi.getTranslations(this.fromLang, this.toLang, encodeURIComponent(article.description))
-				.subscribe(data => article.description = data)
-			if(article.url.includes("translate")) {
-				link = article.url.split("u=")[1]
-				article.url = google_trans + this.toLang + "&u=" + link;
+		let languages = ["en", "zh", "ar", "es"];
+		if(this.fromLang in languages) return;
+		else {
+			for (let article of this.mArticles) {
+				this.newsapi.getTranslations(this.fromLang, this.toLang, encodeURIComponent(article.title))
+					.subscribe(data => article.title = data)
+				this.newsapi.getTranslations(this.fromLang, this.toLang, encodeURIComponent(article.description))
+					.subscribe(data => article.description = data)
+				if(article.url.includes("translate")) {
+					link = article.url.split("u=")[1]
+					article.url = google_trans + this.toLang + "&u=" + link;
+				}
+				else
+					article.url = google_trans + this.toLang + "&u=" + article.url;
 			}
-			else
-				article.url = google_trans + this.toLang + "&u=" + article.url;
+			this.fromLang = this.toLang;
 		}
-		this.fromLang = this.toLang;
 	}
 }
