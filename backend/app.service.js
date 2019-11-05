@@ -4,8 +4,7 @@ const newsAPIObj = new NewsAPI('a188caa95ebe45a1898d065d94db2b57') //921182aceb5
 
 const req = require("requests");
 
-// translate.key = 'trnsl.1.1.20190820T183237Z.bf333331b92fc956.063a4073e6ae47735a362ce3371516e1ca1e29fd';
-// translate.engine = 'yandex';
+const key = "1276145b62a76beb6fb7"; //5ef25df7ef8fd3f0336d
 
 module.exports = {
   topHeadlines,
@@ -59,12 +58,15 @@ async function sources(category,language,country) {
 }
 
 async function trans(fromLang, toLang, str) {
-  req("https://api.mymemory.translated.net/get?q=" + encodeURIComponent(str) + "&langpair=" + fromLang + "|" + toLang)
+  if(str == "" || str == null || str == undefined) 
+    return "";
+  req("https://api.mymemory.translated.net/get?q=" + encodeURIComponent(str) + "&langpair=" + fromLang + "|" + toLang)// + "&key=" + key)
     .on('data', chunk => {
       let data = JSON.parse(chunk);
+      console.log(data.responseData.translatedText)
       return data.responseData.translatedText;
     })
-  
+    
   // convert = await translate(str, { from: fromLang, to: toLang, engine:'yandex', key:'trnsl.1.1.20190820T183237Z.bf333331b92fc956.063a4073e6ae47735a362ce3371516e1ca1e29fd' });
   // return convert;
 }

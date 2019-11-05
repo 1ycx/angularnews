@@ -1,9 +1,3 @@
-
-
-
-
-
-
 <mat-toolbar color="primary">
   <button mat-button (click)="sidenav.open ()" ><mat-icon>menu</mat-icon></button>
   <span>News Headlines</span>  
@@ -11,6 +5,7 @@
   <button mat-button [matMenuTriggerFor]="appMenu">Country <mat-icon><i class="material-icons"></i></mat-icon></button>
   <button mat-button [matMenuTriggerFor]="appMenu1">Language</button>
 </mat-toolbar>
+
 <mat-menu #appMenu1="matMenu">
   <button mat-menu-item (click)="translate('en')">English(us)</button>
   <button mat-menu-item (click)="translate('te')">Telugu</button>
@@ -18,6 +13,7 @@
   <button mat-menu-item (click)="translate('ar')">Arabic</button>
   <button mat-menu-item (click)="translate('zh')">Chinese</button>
 </mat-menu>
+
 <mat-menu #appMenu="matMenu">
   <button mat-menu-item (click)="getArticlesBasedOnLanguage('us')">US</button>
   <button mat-menu-item (click)="getArticlesBasedOnLanguage('it')">Italy</button>
@@ -27,9 +23,55 @@
   <button mat-menu-item (click)="getArticlesBasedOnLanguage('pt')">Portugal</button>
   <button mat-menu-item (click)="getArticlesBasedOnLanguage('ar')">Spain</button>
   <button mat-menu-item (click)="getArticlesBasedOnLanguage('cn')">China</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('at')">Austria</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('au')">Australia</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('be')">Belgium</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('bg')">Bulgaria</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('br')">Brazil</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('ca')">Canada</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('ch')">Switzerland</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('co')">Colombia</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('cu')">Cuba</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('cz')">Czechia</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('de')">Germany</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('eg')">Egypt</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('gb')">UK</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('gr')">Greece</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('hk')">Hong Kong</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('hu')">Hungary</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('id')">Indonesia</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('ie')">Ireland</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('il')">Israel</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('jp')">Japan</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('kr')">South Korea</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('lt')">Lithuania</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('lv')">Latvia</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('ma')">Morocco</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('mx')">Mexico</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('my')">Malaysia</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('ng')">Nigeria</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('nl')">Netherlands</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('no')">Norway</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('nz')">New Zealand</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('ph')">Philippines</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('pl')">Poland</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('ro')">Romania</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('rs')">Serbia</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('ru')">Russia</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('sa')">Saudi Arabia</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('se')">Sweden</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('sg')">Singapore</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('si')">Slovenia</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('sk')">Slovakia</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('th')">Thailand</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('tr')">Turkey</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('tw')">Taiwan</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('ua')">Ukraine</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('ve')">Venezula</button>
+  <button mat-menu-item (click)="getArticlesBasedOnLanguage('za')">South Africa</button>
 </mat-menu>
-<mat-sidenav-container class="example-container">
 
+<mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav class="example-sidenav">
     <mat-list class="list-nav">
         <mat-list-item class="list-item" *ngFor="let source of mSources" (click)="searchArticles(source.name);sidenav.close();">

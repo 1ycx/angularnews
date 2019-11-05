@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NewsApiService } from './news-api.service';
-import { from } from 'rxjs';
 
 
 @Component({
@@ -98,7 +97,10 @@ export class AppComponent {
 				case "ar": this.fromLang = "es"; break;
 			}
 		}
-		// if(this.fromLang === this.language) return;
+
+		// Currently translations not implemented for other languages, thus
+		if(!(this.fromLang in ["en", "zh", "ar", "es"])) return;
+		
 		for (let article of this.mArticles) {
 			this.newsapi.getTranslations(this.fromLang, this.toLang, encodeURIComponent(article.title))
 				.subscribe(data => article.title = data)
