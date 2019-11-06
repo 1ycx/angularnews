@@ -95,26 +95,68 @@ export class AppComponent {
 				case "cn": this.fromLang = "zh"; break;
 				case "ae": this.fromLang = "ar"; break;
 				case "ar": this.fromLang = "es"; break;
+				case "at": this.fromLang = "de"; break;
+				case "au": this.fromLang = "en"; break;
+				case "be": this.fromLang = "fr"; break;
+				case "bg": this.fromLang = "bg"; break;
+				case "br": this.fromLang = "pt"; break;
+				case "ca": this.fromLang = "en"; break;
+				case "ch": this.fromLang = "de"; break;
+				case "co": this.fromLang = "es"; break;
+				case "cu": this.fromLang = "es"; break;
+				case "cz": this.fromLang = "cs"; break;
+				case "de": this.fromLang = "de"; break;
+				case "eg": this.fromLang = "ar"; break;
+				case "gb": this.fromLang = "en"; break;
+				case "gr": this.fromLang = "el"; break;
+				case "hk": this.fromLang = "zh"; break;
+				case "hu": this.fromLang = "hu"; break;
+				case "id": this.fromLang = "id"; break;
+				case "ie": this.fromLang = "en"; break;
+				case "il": this.fromLang = "he"; break;
+				case "jp": this.fromLang = "ja"; break;
+				case "kr": this.fromLang = "ko"; break;
+				case "lt": this.fromLang = "lt"; break;
+				case "lv": this.fromLang = "lv"; break;
+				case "ma": this.fromLang = "fr"; break;
+				case "mx": this.fromLang = "es"; break;
+				case "my": this.fromLang = "en"; break;
+				case "ng": this.fromLang = "en"; break;
+				case "nl": this.fromLang = "nl"; break;
+				case "no": this.fromLang = "no"; break;
+				case "nz": this.fromLang = "en"; break;
+				case "ph": this.fromLang = "en"; break;
+				case "pl": this.fromLang = "pl"; break;
+				case "ro": this.fromLang = "ro"; break;
+				case "rs": this.fromLang = "hr"; break;
+				case "ru": this.fromLang = "ru"; break;
+				case "sa": this.fromLang = "ar"; break;
+				case "se": this.fromLang = "sv"; break;
+				case "sg": this.fromLang = "en"; break;
+				case "si": this.fromLang = "sl"; break;
+				case "sk": this.fromLang = "sk"; break;
+				case "th": this.fromLang = "th"; break;
+				case "tr": this.fromLang = "tr"; break;
+				case "tw": this.fromLang = "zh"; break;
+				case "ua": this.fromLang = "uk"; break;
+				case "ve": this.fromLang = "es"; break;
+				case "za": this.fromLang = "en"; break;
 			}
 		}
 
-		// Currently translations not implemented for other languages, thus
-		let languages = ["en", "zh", "ar", "es"];
-		if(this.fromLang in languages) return;
-		else {
-			for (let article of this.mArticles) {
-				this.newsapi.getTranslations(this.fromLang, this.toLang, encodeURIComponent(article.title))
-					.subscribe(data => article.title = data)
-				this.newsapi.getTranslations(this.fromLang, this.toLang, encodeURIComponent(article.description))
-					.subscribe(data => article.description = data)
-				if(article.url.includes("translate")) {
-					link = article.url.split("u=")[1]
-					article.url = google_trans + this.toLang + "&u=" + link;
-				}
-				else
-					article.url = google_trans + this.toLang + "&u=" + article.url;
+
+		for (let article of this.mArticles) {
+			this.newsapi.getTranslations(this.fromLang, this.toLang, encodeURIComponent(article.title))
+				.subscribe(data => article.title = data)
+			this.newsapi.getTranslations(this.fromLang, this.toLang, encodeURIComponent(article.description))
+				.subscribe(data => article.description = data)
+			if(article.url.includes("translate")) {
+				link = article.url.split("u=")[1]
+				article.url = google_trans + this.toLang + "&u=" + link;
 			}
-			this.fromLang = this.toLang;
+			else
+				article.url = google_trans + this.toLang + "&u=" + article.url;
 		}
+		this.fromLang = this.toLang;
 	}
 }
