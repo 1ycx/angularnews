@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+// import { FormControl } from '@angular/forms';
 
 import { NewsApiService } from './news-api.service';
 
@@ -19,7 +19,7 @@ export class AppComponent {
 	toLang: string = "";
 	category: string = "health";
 
-	control: FormControl = new FormControl('');
+	// control: FormControl = new FormControl('');
 
 	constructor(private newsapi: NewsApiService) {
 		console.log('app component constructor called');
@@ -68,10 +68,10 @@ export class AppComponent {
 
 	}
 
-	handleSearch(val) {
-		this.newsapi.initArticles(this.language, this.category, val).subscribe(data => this.mArticles = data['articles']);
-		val = "";
-	}
+	// handleSearch(val) {
+	// 	this.newsapi.initArticles(this.language, this.category, val).subscribe(data => this.mArticles = data['articles']);
+	// 	val = "";
+	// }
 
 	getArticlesBasedOnLanguage(language) {
 		this.getArticlesBasedOnCategory(this.category, language);
