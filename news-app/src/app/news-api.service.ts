@@ -7,7 +7,8 @@ import { HttpClient  } from '@angular/common/http';
 })
 export class NewsApiService {
   
-  server_host = "http://localhost:4000/news"//"https://backend-ki9ns7qu8.now.sh/news"//"https://backend.kogam22.now.sh/news";
+  dev_server_url = "http://localhost:4000/news"
+  server_host = process.env.BACKEND_URL || this.dev_server_url;
 
   constructor(private http:HttpClient) { }
 

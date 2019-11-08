@@ -5,7 +5,8 @@
     "license": "MIT",
     "scripts": {
         "build": "node server.js",
-        "start": "nodemon server.js"
+        "start": "nodemon server.js",
+        "deploy": "now --prod"
     },
     "dependencies": {
         "body-parser": "^1.18.3",

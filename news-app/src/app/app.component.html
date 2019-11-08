@@ -2,6 +2,8 @@
   <button mat-button (click)="sidenav.open()" ><mat-icon>menu</mat-icon></button>
   <span>News Headlines</span>  
   <span class="example-spacer"></span>
+  <button mat-button [matMenuTriggerFor]="appMenu">Country <mat-icon><i class="material-icons"></i></mat-icon></button>
+  <button mat-button [matMenuTriggerFor]="appMenu1">Language</button>
   <!-- <mat-search-bar [formControl]="control" (onEnter)="handleSearch($event); search.value = ''; search.close()" #search></mat-search-bar> -->
 </mat-toolbar>
 
@@ -160,8 +162,6 @@
 
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav class="example-sidenav">
-    <button mat-button [matMenuTriggerFor]="appMenu">Country <mat-icon><i class="material-icons"></i></mat-icon></button>
-    <button mat-button [matMenuTriggerFor]="appMenu1">Language</button>
     <mat-list class="list-nav">
       <mat-list-item class="list-item" *ngFor="let source of mSources"
         (click)="searchArticles(source.name); sidenav.close();">
