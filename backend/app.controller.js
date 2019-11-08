@@ -12,7 +12,7 @@ module.exports = router;
 
 function topHeadlines(req, res, next) {
     console.log("topHeadlines function called: controller")
-     newsService.topHeadlines(req.query.category, req.query.sources, req.query.language)
+     newsService.topHeadlines(req.query.category, req.query.language, req.query.q)
     .then(response => res.json(response))
         .catch(err => next(err));
 }

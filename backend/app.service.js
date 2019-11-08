@@ -13,17 +13,14 @@ module.exports = {
   trans
 };
 
-async function topHeadlines(category,sources,language) {
+async function topHeadlines(category, language, q) {
   console.log("topHeadlines function called: "+language)
   return newsAPIObj.v2.topHeadlines({
-    
+    q:q,
     category:category,
-    sources:sources,
     country: language,
-    page:1,
-    pageSize:20
+    pageSize: '50'
     }).then(response => {
-    // console.log(response);
     return response;
   });
 }

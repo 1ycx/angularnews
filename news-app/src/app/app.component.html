@@ -1,9 +1,8 @@
 <mat-toolbar color="primary">
-  <button mat-button (click)="sidenav.open ()" ><mat-icon>menu</mat-icon></button>
+  <button mat-button (click)="sidenav.open()" ><mat-icon>menu</mat-icon></button>
   <span>News Headlines</span>  
   <span class="example-spacer"></span>
-  <button mat-button [matMenuTriggerFor]="appMenu">Country <mat-icon><i class="material-icons"></i></mat-icon></button>
-  <button mat-button [matMenuTriggerFor]="appMenu1">Language</button>
+  <mat-search-bar [formControl]="control" (onEnter)="handleSearch($event); search.value = ''; search.close()" #search></mat-search-bar>
 </mat-toolbar>
 
 <mat-menu #appMenu1="matMenu">
@@ -161,33 +160,41 @@
 
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav class="example-sidenav">
+    <button mat-button [matMenuTriggerFor]="appMenu">Country <mat-icon><i class="material-icons"></i></mat-icon></button>
+    <button mat-button [matMenuTriggerFor]="appMenu1">Language</button>
     <mat-list class="list-nav">
-        <mat-list-item class="list-item" *ngFor="let source of mSources" (click)="searchArticles(source.name);sidenav.close();">
-          <img class="icon"  src={{source.src}}/>
-          <span class="source-name"> {{source.name}}</span>
+      <mat-list-item class="list-item" *ngFor="let source of mSources"
+        (click)="searchArticles(source.name); sidenav.close();">
+        <img class="icon" src={{source.src}} />
+        <span class="source-name"> {{source.name}}</span>
 
-        </mat-list-item>
+      </mat-list-item>
     </mat-list>
   </mat-sidenav>
-  <!-- <mat-card-list cols="2" rowHeight="2:1">
-    <mat-grid-tile [*ngFor]="let article of mArticles"> -->
-      <mat-card class="example-card" *ngFor="let article of mArticles">
-        <mat-card-header>
-          <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/images/'+ article.source.id +'.png)'}" class="example-header-image"></div>
-          <mat-card-title class="title">{{article.title}}</mat-card-title>
-          <mat-card-subtitle>{{article.source.name}}</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image class="img-article" src={{article.urlToImage}} alt="">
-        <mat-card-content>
-          <p>
-            {{article.description}}
-          </p>
-        </mat-card-content>
-        <mat-card-actions class="action-buttons">
-          <a mat-button color="primary" href={{article.url}} target="_blank" ><mat-icon>visibility</mat-icon> More</a>
-        </mat-card-actions>
-      </mat-card>
-    <!-- </mat-grid-tile>
-  </mat-card-list> -->
+  <mat-grid-list cols="2">
+    <mat-grid-tile *ngFor="let article of mArticles">
+      <div>
+        <mat-card class="example-card"> <!-- *ngFor="let article of mArticles"-->
+          <mat-card-header>
+            <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/images/'+ article.source.id +'.png)'}"
+              class="example-header-image"></div>
+            <mat-card-title class="title">{{article.title}}</mat-card-title>
+            <mat-card-subtitle>{{article.source.name}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image class="img-article" src={{article.urlToImage}} alt="">
+          <mat-card-content>
+            <p>
+              {{ (article.description.slice(0, 72) + "...") }}
+            </p>
+          </mat-card-content>
+          <mat-card-actions class="action-buttons">
+            <a mat-button color="primary" href={{article.url}} target="_blank">
+              <mat-icon>visibility</mat-icon> More
+            </a>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
 </mat-sidenav-container>
 

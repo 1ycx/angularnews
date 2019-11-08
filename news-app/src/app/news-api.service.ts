@@ -16,8 +16,8 @@ export class NewsApiService {
     return this.http.get(this.server_host+"/sources?category="+category);
    }
   
-   initArticles(language, category) {
-    return this.http.get(this.server_host+"/topHeadlines?language="+language+"&category="+category);
+   initArticles(language, category, q) {
+    return this.http.get(this.server_host+"/topHeadlines?language="+language+"&category="+category+"&q="+q);
    }
    
    initArticlesLanguage(language) {
