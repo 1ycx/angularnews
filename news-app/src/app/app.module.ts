@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatGridListModule } from '@angular/material';
 
 import { NewsApiService } from './news-api.service';
-import { NgMatSearchBarModule } from 'ng-mat-search-bar';
 
 import { AppComponent } from './app.component';
 
@@ -25,7 +24,6 @@ import { AppComponent } from './app.component';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    NgMatSearchBarModule,
     ReactiveFormsModule,
     MatGridListModule,
   ],
