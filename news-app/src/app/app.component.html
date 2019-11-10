@@ -171,10 +171,10 @@
       </mat-list-item>
     </mat-list>
   </mat-sidenav>
-  <mat-grid-list cols="1">
+  <!-- <mat-grid-list cols="1">
     <mat-grid-tile *ngFor="let article of mArticles">
-      <div>
-        <mat-card class="example-card"> <!-- *ngFor="let article of mArticles"-->
+      <div> -->
+        <mat-card class="example-card" *ngFor="let article of mArticles">
           <mat-card-header>
             <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/images/'+ article.source.id +'.png)'}"
               class="example-header-image"></div>
@@ -193,8 +193,8 @@
             </a>
           </mat-card-actions>
         </mat-card>
-      </div>
+      <!-- </div>
     </mat-grid-tile>
-  </mat-grid-list>
+  </mat-grid-list> -->
 </mat-sidenav-container>
 

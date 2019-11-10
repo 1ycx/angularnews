@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient  } from '@angular/common/http';
+// import * as process from 'process';
 
+// declare var process: {
+//   env: {
+//       BACKEND_URL: string
+//   }
+// };
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +14,8 @@ import { HttpClient  } from '@angular/common/http';
 export class NewsApiService {
   
   dev_server_url = "http://localhost:4000/news"
-  server_host = process.env.BACKEND_URL || this.dev_server_url;
+  // server_host = this.dev_server_url;
+  server_host = "https://backend.kogam22.now.sh/news";
 
   constructor(private http:HttpClient) { }
 

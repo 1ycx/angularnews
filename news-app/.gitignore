@@ -41,6 +41,7 @@ yarn-error.log
 testem.log
 /typings
 now.json
+.env
 
 # System Files
 .DS_Store
