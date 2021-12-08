@@ -4,9 +4,9 @@
     "description": "Backend server",
     "license": "MIT",
     "scripts": {
-        "build": "node server.js",
-        "start": "nodemon server.js",
-        "deploy": "now --prod"
+        "dev": "nodemon server.js",
+        "start": "node server.js",
+        "deploy": "vercel --prod"
     },
     "dependencies": {
         "body-parser": "^1.18.3",
