@@ -12,8 +12,8 @@ module.exports = router;
 
 function topHeadlines(req, res, next) {
     console.log("topHeadlines function called: controller")
-     newsService.topHeadlines(req.query.category, req.query.language, req.query.q)
-    .then(response => res.json(response))
+    newsService.topHeadlines(req.query.category, req.query.language, req.query.q)
+        .then(response => res.json(response))
         .catch(err => next(err));
 }
 
@@ -21,7 +21,7 @@ function topHeadlines(req, res, next) {
 function everything(req, res, next) {
     console.log("everything function called: controller")
     newsService.everything(req.query.q, req.query.sources, req.query.domains, req.query.from, req.query.to,
-      req.query.language)
+        req.query.language)
         .then(response => res.json(response))
         .catch(err => next(err));
 }
@@ -57,7 +57,7 @@ function translate(req, res, next) {
 // function topHeadlines(req, res, next) {
 
 //    console.log("topHeadlines function called: controller")
-   
+
 //    sourcesData.topHeadlines(req, res,next).then(response => {
 //     console.log("topHeadlines function called: after success"+response);
 //     res.send(response);
@@ -67,7 +67,7 @@ function translate(req, res, next) {
 // function everything(req, res, next) {
 
 //   console.log("everything function called: controller")
-  
+
 //   sourcesData.everything(req,res,next).then(response => {
 //    console.log("everything function called: after success"+response);
 //    res.send(response);
@@ -77,7 +77,7 @@ function translate(req, res, next) {
 // function sources(req, res, next) {
 
 //   console.log("sources function called: controller")
-  
+
 //   sourcesData.sources(req,res,next).then(response => {
 //    console.log("sources function called: after success"+response);
 //    res.send(response);

@@ -1,6 +1,6 @@
 const NewsAPI = require('newsapi');
 const newsAPIObj = new NewsAPI('a188caa95ebe45a1898d065d94db2b57') //921182aceb5443bb8b89f6bd30e9493c');
-const translate = require('translate'); 
+const translate = require('translate');
 
 // const req = require("requests");
 
@@ -14,25 +14,25 @@ module.exports = {
 };
 
 async function topHeadlines(category, language, q) {
-  console.log("topHeadlines function called: "+language)
+  console.log("topHeadlines function called: " + language)
   return newsAPIObj.v2.topHeadlines({
-    q:q,
-    category:category,
+    q: q,
+    category: category,
     country: language,
     pageSize: '50'
-    }).then(response => {
+  }).then(response => {
     return response;
   });
 }
 
-async function everything(q,sources,domains,from,to,language) {
+async function everything(q, sources, domains, from, to, language) {
   console.log("everything function called: ")
   return newsAPIObj.v2.everything({
-    q:q,
-    sources:sources,
-    domains:domains,
-    from:from,
-    to:to,
+    q: q,
+    sources: sources,
+    domains: domains,
+    from: from,
+    to: to,
     language: language,
     sortBy: 'publishedAt',
     pageSize: '50',
@@ -42,29 +42,31 @@ async function everything(q,sources,domains,from,to,language) {
   });
 }
 
-async function sources(category,language,country) {
+async function sources(category, language, country) {
   console.log("sources function called: ")
   return newsAPIObj.v2.sources({
-    category:category,
+    category: category,
     language: language,
-    country:country
-    }).then(response => {
+    country: country
+  }).then(response => {
     // console.log(response);
-   return response;
+    return response;
   });
 }
 
 async function trans(fromLang, toLang, str) {
-  if(str == "" || str == null || str == undefined) 
-    return "";
+
   // req("https://api.mymemory.translated.net/get?q=" + encodeURIComponent(str) + "&langpair=" + fromLang + "|" + toLang + "&key=" + key)
   //   .on('data', chunk => {
   //     let data = JSON.parse(chunk);
   //     console.log(data.responseData.translatedText)
   //     return data.responseData.translatedText;
   //   })
-    
-  convert = await translate(str, { from: fromLang, to: toLang, engine:'yandex', key:'trnsl.1.1.20190820T183237Z.bf333331b92fc956.063a4073e6ae47735a362ce3371516e1ca1e29fd' });
+
+  if (str == "" || str == null || str == undefined)
+    return "";
+
+  convert = await translate(str, { from: fromLang, to: toLang, engine: 'yandex', key: 'trnsl.1.1.20190820T183237Z.bf333331b92fc956.063a4073e6ae47735a362ce3371516e1ca1e29fd' });
   return convert;
 }
 
@@ -79,7 +81,7 @@ async function trans(fromLang, toLang, str) {
 // function topHeadlines(req,res) 
 // {
 //     console.log("topHeadlines function called "+JSON.stringify(req.query));
-    
+
 //     return newsapi.v2.topHeadlines({
 //       q: req.query.q,
 //       category: req.query.category,
@@ -87,7 +89,7 @@ async function trans(fromLang, toLang, str) {
 //       country: req.query. country
 //     }).then(res => {
 //       console.log("TopHeadlines after giving parameters:");
-     
+
 //       return res;
 //     });
 // }

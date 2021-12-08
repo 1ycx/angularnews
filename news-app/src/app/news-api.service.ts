@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient  } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 // import * as process from 'process';
 
 // declare var process: {
@@ -12,33 +12,33 @@ import { HttpClient  } from '@angular/common/http';
   providedIn: 'root'
 })
 export class NewsApiService {
-  
-  dev_server_url = "http://localhost:4000/news"
-  // server_host = this.dev_server_url;
-  server_host = "https://backend.kogam22.now.sh/news";
 
-  constructor(private http:HttpClient) { }
+  dev_server_url = "http://localhost:4000/news"
+  server_host = this.dev_server_url;
+  // server_host = "https://backend.kogam22.now.sh/news";
+
+  constructor(private http: HttpClient) { }
 
 
   initSources(category) {
-    return this.http.get(this.server_host+"/sources?category="+category);
-   }
-  
-   initArticles(language, category, q) {
-    return this.http.get(this.server_host+"/topHeadlines?language="+language+"&category="+category+"&q="+q);
-   }
-   
-   initArticlesLanguage(language) {
-    return this.http.get(this.server_host+"/topHeadlines?language="+language);
-   }
- 
-   getArticlesByID(category: String, language:string) {
-    return this.http.get(this.server_host+"/topHeadlines?category="+category+"&language="+language);
-   }
+    return this.http.get(this.server_host + "/sources?category=" + category);
+  }
 
-   getTranslations(fromLang: string, toLang: string, str: string) {
-    return this.http.get(this.server_host+"/translate?fromLang="+fromLang+"&toLang="+toLang+"&str="+str);
-   }  
+  initArticles(language, category, q) {
+    return this.http.get(this.server_host + "/topHeadlines?language=" + language + "&category=" + category + "&q=" + q);
+  }
+
+  initArticlesLanguage(language) {
+    return this.http.get(this.server_host + "/topHeadlines?language=" + language);
+  }
+
+  getArticlesByID(category: String, language: string) {
+    return this.http.get(this.server_host + "/topHeadlines?category=" + category + "&language=" + language);
+  }
+
+  getTranslations(fromLang: string, toLang: string, str: string) {
+    return this.http.get(this.server_host + "/translate?fromLang=" + fromLang + "&toLang=" + toLang + "&str=" + str);
+  }
 }
 
 
@@ -77,14 +77,14 @@ export class NewsApiService {
 
 //   initSources(language:String){
 //      return this.http.get (this.host+"sources?language="+language);
-   
+
 //   }
 
 //   initArticles(language:string){
 //    return this.http.get(this.host+"top-headlines?language="+language);
 //   }
 //   getArticlesByID(source: String,lang:String){
-    
+
 //    return this.http.get(this.host+"top-headlines?sources="+source+"&language="+lang);
 //   }
 // } 
