@@ -14,8 +14,8 @@ import { HttpClient } from '@angular/common/http';
 export class NewsApiService {
 
   dev_server_url = "http://localhost:4000/news"
-  server_host = this.dev_server_url;
-  // server_host = "https://backend.kogam22.now.sh/news";
+  // server_host = this.dev_server_url;
+  server_host = "https://ang-backend.vercel.app/news";
 
   constructor(private http: HttpClient) { }
 
