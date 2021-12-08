@@ -1,7 +1,7 @@
 {
-    "name": "node-news-feed-api",
-    "version": "1.0.0",
-    "description": "Node.js news feed api",
+    "name": "news-application-backend",
+    "version": "2.3.1",
+    "description": "Backend server",
     "license": "MIT",
     "scripts": {
         "build": "node server.js",
@@ -21,6 +21,6 @@
         "translate": "^1.1.0"
     },
     "devDependencies": {
-        "nodemon": "^1.18.6"
+        "nodemon": "^2.0.15"
     }
 }

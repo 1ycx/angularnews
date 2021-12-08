@@ -1,6 +1,6 @@
 {
-  "name": "news-app",
-  "version": "0.0.0",
+  "name": "news-application",
+  "version": "2.3.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
