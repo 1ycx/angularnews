@@ -4,7 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Install yarn: `npm install --global yarn`
+Install yarn: 
+
+```sh
+npm install --global yarn
+```
 
 Run 
 ```sh
