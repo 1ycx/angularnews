@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, isDevMode } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 // import * as process from 'process';
 
@@ -14,11 +14,14 @@ import { HttpClient } from '@angular/common/http';
 export class NewsApiService {
 
   dev_server_url = "http://localhost:4000/news"
-  // server_host = this.dev_server_url;
+
   server_host = "https://ang-backend.vercel.app/news";
 
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient) {
+    if (isDevMode()) {
+      this.server_host = this.dev_server_url;
+    }
+  }
 
   initSources(category) {
     return this.http.get(this.server_host + "/sources?category=" + category);
