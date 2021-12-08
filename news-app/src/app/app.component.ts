@@ -11,13 +11,13 @@ import { NewsApiService } from './news-api.service';
 })
 export class AppComponent {
 
-	mArticles: Array < any > ;
-	mSources: Array < any > ;
+	mArticles: Array<any>;
+	mSources: Array<any>;
 
-	language: string = "in";
+	language: string = "us";
 	fromLang: string = "";
 	toLang: string = "";
-	category: string = "health";
+	category: string = "general";
 
 	// control: FormControl = new FormControl('');
 
@@ -29,40 +29,40 @@ export class AppComponent {
 	ngOnInit() {
 
 		this.mSources = [{
-			"name":"general",
-			"id":1,
-			"src":"../assets/icons/general.png"
-		  },{
-			"name":"science",
-			"id":2,
-			 "src":"../assets/icons/science.png"
-		  },
-		  {
-			"name":"technology",
-			"id":3,
-			 "src":"../assets/icons/technology.png"
-		  },
-		  {
-			"name":"entertainment",
-			"id":4,
-			 "src":"../assets/icons/entertainment.png"
-		  },
-		  {
-			"name":"sports",
-			"id":5,
-			"src":"../assets/icons/sports.png"
-		  },
-		  {
-			"name":"business",
-			"id":6,
-			"src":"../assets/icons/business.png"
-		  },
-		  {
-			"name":"health",
-			"id":7,
-			"src":"../assets/icons/health.png"
-		  
-		  	}	];
+			"name": "general",
+			"id": 1,
+			"src": "../assets/icons/general.png"
+		}, {
+			"name": "science",
+			"id": 2,
+			"src": "../assets/icons/science.png"
+		},
+		{
+			"name": "technology",
+			"id": 3,
+			"src": "../assets/icons/technology.png"
+		},
+		{
+			"name": "entertainment",
+			"id": 4,
+			"src": "../assets/icons/entertainment.png"
+		},
+		{
+			"name": "sports",
+			"id": 5,
+			"src": "../assets/icons/sports.png"
+		},
+		{
+			"name": "business",
+			"id": 6,
+			"src": "../assets/icons/business.png"
+		},
+		{
+			"name": "health",
+			"id": 7,
+			"src": "../assets/icons/health.png"
+
+		}];
 
 		this.getArticlesBasedOnCategory(this.category, this.language);
 
@@ -91,14 +91,14 @@ export class AppComponent {
 		this.category = category;
 		this.newsapi.getArticlesByID(category, this.language).subscribe(data => this.mArticles = data['articles']);
 	}
-	
+
 	translate(toLang) {
 		this.toLang = toLang;
-		let link = ""; 
+		let link = "";
 		let google_trans = "https://translate.google.com/translate?hl=en&sl=auto&tl=";
-		
-		if(this.fromLang == "") {
-			switch(this.language){
+
+		if (this.fromLang == "") {
+			switch (this.language) {
 				case "in": this.fromLang = "en"; break;
 				case "us": this.fromLang = "en"; break;
 				case "cn": this.fromLang = "zh"; break;
@@ -159,7 +159,7 @@ export class AppComponent {
 				.subscribe(data => article.title = data)
 			this.newsapi.getTranslations(this.fromLang, this.toLang, encodeURIComponent(article.description))
 				.subscribe(data => article.description = data)
-			if(article.url.includes("translate")) {
+			if (article.url.includes("translate")) {
 				link = article.url.split("u=")[1]
 				article.url = google_trans + this.toLang + "&u=" + link;
 			}
