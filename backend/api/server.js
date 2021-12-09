@@ -15,11 +15,8 @@ app.use(cors());
 app.use('/news', require('./app.controller'));
 
 // start server
-if (process.env.NODE_ENV !== 'production') {
-    const port = process.env.PORT || 4000;
-    const server = app.listen(port, function () {
-        console.log('Server listening on port ' + port);
-    });
-}
+
+const port = process.env.PORT || 4000;
+app.listen(port, () => console.log(`Server running on ${port}, http://localhost:${port}`));
 
 module.exports = app;

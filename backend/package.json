@@ -3,10 +3,10 @@
     "version": "2.3.1",
     "description": "Backend server",
     "license": "MIT",
-    "main": "server.js",
+    "main": "api/server.js",
     "scripts": {
-        "dev": "nodemon server.js",
-        "build": "node server.js",
+        "start": "nodemon api/server.js",
+        "build": "node api/server.js",
         "deploy": "vercel --prod"
     },
     "dependencies": {
