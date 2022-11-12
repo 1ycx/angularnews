@@ -32,7 +32,7 @@
     "rxjs": "~6.4.0",
     "serialize-javascript": "^3.1.0",
     "socket.io": "^2.4.0",
-    "socket.io-parser": "^3.3.2",
+    "socket.io-parser": "^3.4.2",
     "sockjs": "^0.3.20",
     "translate": "^1.1.0",
     "tree-kill": "1.2.2",
